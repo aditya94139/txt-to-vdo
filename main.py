@@ -66,7 +66,7 @@ bot = Client("bot",
              bot_token=os.environ.get("BOT_TOKEN"),
              api_id=int(os.environ.get("API_ID")),
              api_hash=os.environ.get("API_HASH"))
-auth_users = [6981453498,5318243282,5987970971,6061552289]
+auth_users = [5827915041]
 sudo_users = auth_users
 sudo_groups = [-1001911553062]
 
@@ -129,7 +129,7 @@ keyboard = InlineKeyboardMarkup(
 
 @bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(f"HELLO I AM TXT DOWNLOADER BOT  [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nPress /TIGER")
+    editable = await m.reply_text(f"HELLO I AM TXT DOWNLOADER BOT  [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nPress /TXT")
 
 
 @bot.on_message(filters.command("STOP"))
@@ -139,7 +139,7 @@ async def restart_handler(_, m):
 
 
 
-@bot.on_message(filters.command(["TIGER"]))
+@bot.on_message(filters.command(["TXT"]))
 async def account_login(bot: Client, m: Message):
     user = m.from_user.id if m.from_user is not None else None
     if user is not None and user not in sudo_users:
@@ -269,8 +269,8 @@ async def account_login(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**Vid_id  »** {str(count).zfill(3)}\n**Title  »** {name1} {res} {MR}.mkv\n**Batch »** {raw_text0}\n**DOWNLOADED BY » **@TIGER0054'
-                cc1 = f'**Vid_id  »** {str(count).zfill(3)}\n**Title »** {name1} {MR}.pdf \n**Batch »** {raw_text0}\n**DOWNLOADED BY » **@TIGER0054'
+                cc = f'**Vid_id  »** {str(count).zfill(3)}\n**Title  »** {name1} {res} {MR}.mkv\n**Batch »** {raw_text0}\n**DOWNLOADED BY » {MR}**\n\n' 
+                cc1 = f'**Vid_id  »** {str(count).zfill(3)}\n**Title »** {name1} {MR}.pdf \n**Batch »** {raw_text0}\n**DOWNLOADED BY » {MR}**\n\n' 
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
